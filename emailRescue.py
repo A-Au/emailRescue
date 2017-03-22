@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 from __future__ import print_function
 import httplib2
 import os
@@ -102,8 +102,7 @@ def main():
 
     # Iterates overs the list of IDs found and sends them
     if not msg_ids:
-        print('No messages found in the time period from ' +
-              afterStr + ' to ' + beforeStr)
+        print('No messages found')
     else:
         print('Found ' + results.get('resultSizeEstimate', 0) + ' emails to rescue')
         print('Message IDs:')
@@ -113,7 +112,7 @@ def main():
             msg = getMessage(service, m_id['id'])['raw']
             sendMessage(msg)
 
-    print('Rescued!')
+        print('Rescued!')
 
 if __name__ == '__main__':
     main()
